@@ -54,8 +54,7 @@ import { ThemeProvider } from '@material-ui/styles';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import theme from '../theme/muiTheme';
-import { ReactComponent as SwiftyPhrase } from '../resources/swiftyPhrase.svg';
-import { ReactComponent as MumbiLogo } from '../resources/mumbi logo.svg';
+import { ReactComponent as Logo } from '../resources/logo.svg';
 import Paper from '@material-ui/core/Paper';
 
 const useStyles = makeStyles((theme) => ({
@@ -92,6 +91,9 @@ const useStyles = makeStyles((theme) => ({
   grow: {
     flexGrow: 1,
     marginTop: 8
+  },
+  appMargin:{
+    marginTop: 50
   }
 
 }));
@@ -108,17 +110,17 @@ export default function AppbarM() {
         elevation={0}
         >
         <Toolbar className={classes.toolbar}>
-          <Grid container justify={'center'} alignItems={'center'} spacing={5}>
+          <Grid container justify={'center'} alignItems={'start'} spacing={5}>
             <Grid item className={classes.grow}>
-            <MumbiLogo viewBox='-200, -40, 9000, 1000'/>
+            <Logo viewBox='-100, -40, 1000, 500'/>
             </Grid>
-            <Grid item >
+            <Grid item  className={classes.appMargin}>
               <Button >Home</Button>
             </Grid>
-            <Grid item >
+            <Grid item className={classes.appMargin}>
               <Button >About us</Button>
             </Grid>
-            <Grid item className={classes.appBarLinks} >
+            <Grid item className={classes.appMargin} >
               <Button>Contacts</Button>
             </Grid>
           </Grid>

@@ -1,49 +1,3 @@
-/*import React from 'react';
-import AppBar from '@material-ui/core/Appbar';
-import PropTypes from 'prop-types';
-import { Toolbar, makeStyles, Button,
-         IconButton, Typography } from '@material-ui/core';
-//import { makeStyles } from '@material-ui/core/styles'
-//import MenuIcon from '@material-ui/icons';
-
-const useStyles = makeStyles((theme) => ({
-    appBar: {
-        backgroundColor: "#fff",
-        color: "#555",
-        boxShadow:
-          "0 0px 0px 0px rgba(0, 0, 0, 0.12), 0 7px 4px -5px rgba(0, 0, 0, 0.15)",
-    },    
-    button: {
-            background: 'primary',
-            border: 0,
-            borderRadius: '0 10px 10px 10px',
-            boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-            color: 'black',
-            height: 48,
-            padding: '0 30px',
-            margin:'100px',
-    }
-}));
-
-function AppbarM(props){
-    const classes = useStyles();
-    return(
-        <>
-        <AppBar position='absolute' className={classes.appBar}>
-            <Toolbar>
-                <IconButton
-                    edge = 'start'
-                    color = 'inherit'
-                >
-                </IconButton>
-                <Typography component = 'h1' variant = 'h6' color = 'inherit'>Mumbi Audits</Typography>
-            </Toolbar>
-        </AppBar>
-        <Button className={classes.button}>Test</Button>
-        </>
-    );
-}*/
-
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -55,7 +9,7 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import theme from '../theme/muiTheme';
 import { ReactComponent as SwiftyPhrase } from '../resources/swiftyPhrase.svg';
-import { ReactComponent as MumbiLogo } from '../resources/mumbi logo.svg';
+import HamburgerIcon from './hamburgerIcon';
 import Paper from '@material-ui/core/Paper';
 
 const useStyles = makeStyles((theme) => ({
@@ -96,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-export default function AppbarM() {
+export default function ProminentAppBar() {
   const [spacing, setSpacing] = React.useState(2);
     const classes = useStyles();
   return (
@@ -105,21 +59,21 @@ export default function AppbarM() {
       <AppBar
         position="static"
         color='transparent'
-        elevation={0}
+        elevation={4}
         >
         <Toolbar className={classes.toolbar}>
           <Grid container justify={'center'} alignItems={'center'} spacing={5}>
             <Grid item className={classes.grow}>
-            <MumbiLogo viewBox='-200, -40, 9000, 1000'/>
+              <SwiftyPhrase viewBox='-150,-40,4400,300'/>
             </Grid>
             <Grid item >
               <Button >Home</Button>
             </Grid>
             <Grid item >
-              <Button >About us</Button>
+              <Button >Stores</Button>
             </Grid>
             <Grid item className={classes.appBarLinks} >
-              <Button>Contacts</Button>
+              <Button>Reviews</Button>
             </Grid>
           </Grid>
         </Toolbar>

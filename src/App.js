@@ -1,10 +1,12 @@
 import React from 'react';
-import AppbarM from './components/AppbarM';
+import ToolbarAbstraction from './Test/ToolbarAbstraction';
+import ColumnDirection from './Test/ColumnDirection';
 
 function App() {
   return (
     <>
-    <AppbarM />
+    <ToolbarAbstraction />
+    <ColumnDirection/>
     </>
   );
 }

@@ -16,14 +16,16 @@ const theme = createMuiTheme({
     },
   },
     shape: {
-      borderRadius: 20,
+      borderRadius: 5,
     },
     typography: {
       useNextVariants: true,
       button: {
         textTransform: 'none',
-        fontFamily: 'montserrat light',
+        fontFamily: 'Optima',
       },
+      fontFamily: 'Optima',
     },
+    
 });
 export default theme;

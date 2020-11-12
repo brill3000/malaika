@@ -1,13 +1,17 @@
 import React from 'react';
-import AppbarM from './components/AppbarM';
-import ColumnDirection from './Test/ColumnDirection';
+import Home from './components/home';
+import {ThemeProvider} from '@material-ui/core/styles';
+
+import theme from './theme/muiTheme';
 
 function App() {
   return (
-    <>
-    <AppbarM />
-    <ColumnDirection/>
-    </>
+    <ThemeProvider theme={theme}>
+        <>
+         <Home/>
+        </>
+    </ThemeProvider>
+    
   );
 }
 

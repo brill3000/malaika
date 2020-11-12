@@ -1,16 +1,12 @@
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import theme from '../theme/muiTheme';
-import { ReactComponent as SwiftyPhrase } from '../resources/swiftyPhrase.svg';
-import HamburgerIcon from './hamburgerIcon';
-import Paper from '@material-ui/core/Paper';
+import { ReactComponent as Logo } from '../resources/logo.svg';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,8 +18,8 @@ const useStyles = makeStyles((theme) => ({
   },
   toolbar: {
     minHeight: 70,
-    marginLeft: 20,
-    marginRight: 20,
+    marginLeft: 0,
+    marginRight: 0,
     alignItems: 'center',
     justifyContent: 'flex-start',
   },
@@ -33,7 +29,8 @@ const useStyles = makeStyles((theme) => ({
     size: 'large',
   },
   appBarLinks: {
-    marginRight: 14,
+    marginRight: 0,
+    marginTop: 40
   },
   paper: {
     height: 10,
@@ -45,13 +42,16 @@ const useStyles = makeStyles((theme) => ({
   },
   grow: {
     flexGrow: 1,
-    marginTop: 8
-  }
+    alignSelf: 'center',
+    maxWidth: '50%'
+  },
+  appMargin:{
+    marginTop: 40,
+  },
 
 }));
 
-export default function ProminentAppBar() {
-  const [spacing, setSpacing] = React.useState(2);
+export default function Appbar() {
     const classes = useStyles();
   return (
     <ThemeProvider theme = {theme}>
@@ -59,21 +59,24 @@ export default function ProminentAppBar() {
       <AppBar
         position="static"
         color='transparent'
-        elevation={4}
+        elevation={0}
         >
         <Toolbar className={classes.toolbar}>
-          <Grid container justify={'center'} alignItems={'center'} spacing={5}>
+          <Grid container justify={'center'} alignItems={'flex-start'} spacing={5}>
             <Grid item className={classes.grow}>
-              <SwiftyPhrase viewBox='-150,-40,4400,300'/>
+            <Logo viewBox='-0, -40, 800, 280'/>
             </Grid>
-            <Grid item >
-              <Button >Home</Button>
+            <Grid item  className={classes.appMargin}>
+              <Button size="large">Home</Button>
             </Grid>
-            <Grid item >
-              <Button >Stores</Button>
+            <Grid item className={classes.appMargin}>
+              <Button size="large">About us</Button>
             </Grid>
             <Grid item className={classes.appBarLinks} >
-              <Button>Reviews</Button>
+              <Button size="large">Contacts</Button>
+            </Grid>
+            <Grid item className={classes.appBarLinks} >
+              <Button variant='outlined' size="large">Donate</Button>
             </Grid>
           </Grid>
         </Toolbar>

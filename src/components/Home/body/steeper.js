@@ -10,28 +10,32 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
 function getSteps() {
-    return ['Identifying the vunerable', 'Creating a home', 'Giving them skills to enable self sustainability'];
+    return [
+    <Typography>Identifying the vunerable</Typography>,
+    <Typography>Creating a home</Typography>, 
+    <Typography>Giving them skills to enable self sustainability</Typography>];
   }
   
 function getStepContent(step) {
 switch (step) {
     case 0:
-    return `The aim is to identify these families based on their status and also pick those that are already abandoned;
-            The target groups are as follows;
-            ~   Children with physical Disabilities or mentally challenged
-            ~   Children below 5 years born of Jobless parents with more than 5 children
-            ~   Abandoned children below 5 years
-            ~   Sickly and mul-nourished children below 5 years
-            ~   Orphaned children below 5 years
-            ~   Children below 5 years born of Single mothers that are in their teenage 
-            ~   Children born of extreme poor background`;
+    return <ul><Typography>The aim is to identify these families based on their status and also pick those that are already abandoned;
+            The target groups are as follows;</Typography>
+            <li>  <Typography>Children with physical Disabilities or mentally challenged</Typography></li>
+            <li>  <Typography>Children below 5 years born of Jobless parents with more than 5 children</Typography></li>
+            <li>  <Typography>Abandoned children below 5 years</Typography></li>
+            <li>  <Typography>Sickly and mul-nourished children below 5 years</Typography></li>
+            <li>  <Typography>Orphaned children below 5 years</Typography></li>
+            <li>  <Typography>Children below 5 years born of Single mothers that are in their teenage</Typography></li>
+            <li>  <Typography>Children born of extreme poor background</Typography></li>
+            </ul>
     case 1:
-    return `We are proposing to have these angels settled on a self sustaining 100
-             acre highly intensive and technologically mechanized hydro-phonic farm`;
+    return <Typography>We are proposing to have these angels settled on a self sustaining 100
+             acre highly intensive and technologically mechanized hydro-phonic farm</Typography>
     case 2:
-    return `The intention is to have a fully intergrated farm as an
+    return <Typography>The intention is to have a fully intergrated farm as an
              income generating activity besides other crafts such 
-             as carving prcelein modelling, IT, weaving etc`;
+             as carving prcelein modelling, IT, weaving etc</Typography>
     default:
     return 'Unknown step';
 }
@@ -72,23 +76,23 @@ function CustomStepper(){
         <>
                     <Stepper activeStep={activeStep} orientation="vertical">
                         {steps.map((label, index) => (
-                        <Step key={label}>
-                            <StepLabel>{label}</StepLabel>
+                        <Step key={index}>
+                            <StepLabel color="secondary">{label}</StepLabel>
                             <StepContent>
-                            <Typography>{getStepContent(index)}</Typography>
+                            {getStepContent(index)}
                             <div className={classes.actionsContainer}>
                                 <div>
                                 <Button
                                     disabled={activeStep === 0}
                                     onClick={handleBack}
                                     className={classes.button}
-                                    color="primary"
+                                    color="secondary"
                                 >
                                     Back
                                 </Button>
                                 <Button
                                     variant="contained"
-                                    color="primary"
+                                    color="secondary"
                                     onClick={handleNext}
                                     className={classes.button}
                                 >
@@ -103,7 +107,7 @@ function CustomStepper(){
                     {activeStep === steps.length && (
                         <Paper square elevation={0} className={classes.resetContainer}>
                         <Typography>You have viewed all the steps of our process</Typography>
-                        <Button onClick={handleReset} variant="large"className={classes.button}>
+                        <Button onClick={handleReset} variant="outlined"className={classes.button}>
                             View Again
                         </Button>
                         </Paper>

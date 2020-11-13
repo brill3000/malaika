@@ -1,12 +1,13 @@
 import React from 'react';
-import Appbar from './Appbar';
+import Appbar from '../Appbar';
 import Body from './body/index';
 import {makeStyles} from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
    root:{
       background:"rgb(228 128 23 / 9%)",
-      height: '100vh'
+      height: '100vh',
+      margin: 0
    }
 }))
 
@@ -15,7 +16,11 @@ function Home(){
    return(
     <>
     <div className={classes.root}>
-      <Appbar />
+      <Appbar 
+      logoSizePc="-0, -40, 800, 280" 
+      logoSizeMobile="-0, -30, 400, 280" 
+      logoSizeTablet="-0, -49, 600, 280"
+      />
       <Body />
    </div>
     </>

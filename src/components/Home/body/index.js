@@ -5,8 +5,8 @@ import Grid from '@material-ui/core/Grid';
 import Intro from './intro';
 import Vision from './vision'
 import Journey from './journey'
-import Progress from './progress';
-import Footer from './footer';
+import Procress from './procress';
+import Footer from '../../footer';
 import Proprieters from './propertiers';
 
 
@@ -21,7 +21,7 @@ function Body(){
             <Vision/>
         </Grid>
         <Journey />
-        <Progress />
+        <Procress />
         <Proprieters />
         <Footer />
         </>

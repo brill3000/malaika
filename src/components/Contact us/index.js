@@ -3,7 +3,7 @@ import Appbar from '../Appbar'
 import Footer from '../footer';
 import Body from './body';
 
-function AboutUs(){
+function ContactUs(){
     return(
         <>
             <Appbar 
@@ -17,4 +17,4 @@ function AboutUs(){
     )
 }
 
-export default AboutUs;
+export default ContactUs;

@@ -42,7 +42,7 @@ function Footer(){
     return(
       <>
       <Grid container >
-        <Grid items xs={7} className={classes.margin}>
+        <Grid item xs={7} className={classes.margin}>
           <Grid container orientation="verticle">
             <Grid item xs={7}>
               <Typography variant="h4">

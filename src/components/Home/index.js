@@ -18,8 +18,8 @@ function Home(){
     <div className={classes.root}>
       <Appbar 
       logoSizePc="-0, -40, 800, 280" 
-      logoSizeMobile="-0, -30, 400, 280" 
-      logoSizeTablet="-0, -49, 600, 280"
+      logoSizeMobile="-0, -45, 400, 280" 
+      logoSizeTablet="-0, -50, 700, 280"
       />
       <Body />
    </div>

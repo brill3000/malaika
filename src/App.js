@@ -13,7 +13,7 @@ function App() {
     <ThemeProvider theme={theme}>
         <>
         <Route
-          path="/home"
+          path="/"
           component={Home}
         />
         <Route

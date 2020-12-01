@@ -1,8 +1,8 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
-import { ReactComponent as Divider } from '../../../resources/Asset 1.svg';
-import Grid from '@material-ui/core/Grid'
-import { Card, CardMedia, CardHeader } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
+import {ReactComponent as SideDivider} from '../../../resources/side divider.svg'
+
 import pic from '../../../resources/pic2.jpg';
 import { makeStyles , useTheme} from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
@@ -10,96 +10,132 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 
 const useStyles = makeStyles((theme) => ({
-    body2:{
-        paddingTop: theme.spacing(1),
-    },
-    scrollMargin:{
-        marginTop: theme.spacing(15),
-        marginLeft: theme.spacing(17),
-        paddingBottom: theme.spacing(10),
-        paddingTop: theme.spacing(4)
-    }, 
-    scrollMargin2:{
-        marginTop: theme.spacing(15),
-        marginLeft: theme.spacing(17),
-        paddingBottom: theme.spacing(10),
-        paddingTop: theme.spacing(15)
-    }, 
-    imgSize:{
-        maxWidth: 500,
-        marginTop: theme.spacing(3),
-        marginLeft: theme.spacing(8),
-        [theme.breakpoints.down('md')]:{
-            marginLeft: theme.spacing(0),
-        },
-        marginBottom: theme.spacing(3),
-        backgroundColor: "rgb(119 42 88 / 5%)",
-        boxShadow:'0px -5px 30px 0px rgb(26 55 64 / 24%)',
-        paddingBottom: theme.spacing(3),
+   
+    imgContainer:{
+        width: 400,
+        height: 480,
+        position: 'relative',
+        overflow: 'hidden',
+        marginTop: theme.spacing(4),
 
     },
     media: {
-        width: 500,
-        height: 500
+        width: 400,
+        position: 'absolute',
+        top: '3px'
     },
-    leftBg:{
-        marginTop: theme.spacing(13),
-        background:"rgb(101 110 175 / 11%)",
+    right:{
+        paddingLeft: theme.spacing(24)
+    },
+    sideText:{
+        writingMode: 'vertical-rl',
+        textOrientation: 'upright',
+    },
+    textPosition:{
+        marginTop: theme.spacing(28),
+        paddingLeft: theme.spacing(5)
+    },
+    imgContainerMobile:{
+        width: 322,
+        height: 422,
+        position: 'relative',
+        overflow: 'hidden',
+        marginTop: theme.spacing(4),
+
+    },
+    mediaMobile: {
+        width: 322,
+        position: 'absolute',
+        top: '3px'
+    },
+    rightMobile:{
+        paddingLeft: theme.spacing(8),
+        paddingTop: theme.spacing(8)
+    },
+    sideTextMobile:{
+        writingMode: 'vertical-rl',
+        textOrientation: 'upright',
+    },
+    textPositionMobile:{
+        marginTop: theme.spacing(3),
+        paddingLeft: theme.spacing(0)
     },
 }))
 
 function Vision(){
     const classes = useStyles();
-    const text2 = "Nurturing Young Minds That are less Previlaged ";
+    //const text2 = "Nurturing Young Minds That are less Previlaged ";
     const theme = useTheme();
-    const matches = useMediaQuery(theme.breakpoints.up('md'))
+    const matches = useMediaQuery(theme.breakpoints.up('sm'))
 
     return(
         <>
-        <Grid item xs={12} md={6} sm={12} lg={5} >
-           { matches ? 
-                <Grid container justify="flex-start" className={classes.scrollMargin}>
-                    <Grid item lg={5} md={5} sm={8} xs={8} >
-                        <Typography variant="h3">{text2}</Typography>
-                        <Divider viewBox='0,-40,800,130' title=""/>
-                        <Typography variant="h5" color="textSecondary">Vision</Typography>
-                        <Typography variant="body1" className={classes.body2}>
-                        To be a haven and a fountain of joy and
-                        hope to children from backgrounds that 
-                        have been wanting
-                        </Typography>
+        {
+            matches
+            ?
+        <Grid item xs={12} className={classes.right}>
+            <Grid container>
+                <Grid item xs={5}>
+                    <Typography variant="h3" color="textSecondary" className={classes.test}>
+                        Nurturing young minds that are less previlaged
+                    </Typography>
+                </Grid>
+                <Grid item xs={7}></Grid>
+                <Grid item xs={6}>
+                    <Grid container className={classes.imgContainer}>
+                            <img src={pic} className={classes.media} alt=''/>
                     </Grid>
-                    <Grid item lg={7} md={5} sm={4} xs={4}>
-                    </Grid>
-                </Grid> 
-                    :
-                <Grid container justify="flex-start" className={classes.scrollMargin2}>
-                    <Grid item lg={5} md={5} sm={8} xs={8} >
-                        <Typography variant="h3">{text2}</Typography>
-                        <Divider viewBox='0,-40,1000,130' title=""/>
-                        <Typography variant="h6" color="textSecondary">Vision</Typography>
-                        <Typography variant="body2" className={classes.body2}>
-                        To be a haven and a fountain of joy and
-                        hope to children from backgrounds that 
-                        have been wanting
-                        </Typography>
-                    </Grid>
-                    <Grid item lg={7} md={5} sm={4} xs={4}>
-                    </Grid>
-                </Grid>   
-            } 
-                      
+                </Grid>
+                <Grid item xs={3} className={classes.textPosition}>
+                    <Typography variant="h6" color="textSecondary">
+                        Vision
+                    </Typography>
+                    <br/>
+                    <Typography variant="body1" color="textSecondary">
+                        Educating and caring for the next generation
+                    </Typography>
+                </Grid>
+                <Grid item xs={1}><SideDivider /></Grid>
+                <Grid item xs={2} className={classes.textPosition}>
+                    <Typography
+                        className={classes.sideText}
+                        variant="body1"
+                        color="textSecondary"
+                    >
+                        Love
+                    </Typography>
+                </Grid>
+            </Grid>
         </Grid>
-        <Grid item xs={12} md={6} sm={12} lg={7} className={classes.leftBg}>
-            <Card className={classes.imgSize} elevation={5}>
-                <CardMedia
-                    className={classes.media}
-                    image={pic}
-                    title=""
-                />   
-                <CardHeader title="Better life" subheader="Educating next generation for a better life" />
-            </Card>
+
+            :
+        <Grid item xs={12} className={classes.rightMobile}>
+            <Grid container>
+                <Grid item xs={8}>
+                    <Typography variant="h3" color="textSecondary" >
+                        Nurturing young minds that are less previlaged
+                    </Typography>
+                </Grid>
+                <Grid item xs={4}></Grid>
+                <Grid item xs={12}>
+                    <Grid container className={classes.imgContainerMobile}>
+                            <img src={pic} className={classes.mediaMobile} alt=''/>
+                    </Grid>
+                </Grid>
+                <Grid item xs={12} className={classes.textPositionMobile}>
+                    <Typography variant="h5" color="textSecondary">
+                        Vision
+                    </Typography>
+                    <br/>
+                    <Typography variant="body1" color="textSecondary">
+                        Educating and caring for the next generation
+                    </Typography>
+                </Grid>
+                
+            </Grid>
         </Grid>
+        }
+        
         </>
     )
 }

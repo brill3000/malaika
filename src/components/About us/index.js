@@ -7,8 +7,8 @@ function AboutUs(){
     return(
         <>
             <Appbar 
-            logoSizePc="-0, -40, 1200, 280" 
-            logoSizeMobile="-0, -40, 600, 280"
+            logoSizePc="-100, -40, 1400, 280" 
+            logoSizeMobile="-0, -90, 500, 340"
             logoSizeTablet="-0, -50, 900, 280"
             />
             <Body />

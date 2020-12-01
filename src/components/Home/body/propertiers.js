@@ -2,6 +2,7 @@ import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import {makeStyles} from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
+import dadPic from '../../../resources/Sylvester.png'
 import { Card, CardContent, CardHeader, Avatar, CardActions } from '@material-ui/core';
 
 import PersonIcon from '@material-ui/icons/Person';
@@ -16,23 +17,25 @@ const proprieters = [
         caption: "Joined 2009",
         description: 
         `Compassionate and driven, Sylvester has dedicated his life an effort
-        to help the vunerable`,
+        to help the vunerable. A climate change scientist by profession, he 
+        strives to create a better world for our future generation... `
     },
     {
         title: "Julie Mumbua",
-        subheader: "Director",
+        subheader: "Volunteer",
         caption: "Joined 2009",
         description: 
-        `Compassionate and driven, Sylvester has dedicated his life an effort
-        to help the vunerable`,
+        `A talented singer who brings joy to children using her voice, reaching out
+        to them through music. She is a certified Geospasial engineer but down to earth
+        at heart...`
     },
     {
         title: "Mayday Mumbi",
-        subheader: "Director",
+        subheader: "Volunteer",
         caption: "Joined 2009",
         description: 
-        `Compassionate and driven, Sylvester has dedicated his life an effort
-        to help the vunerable`,
+        `Financial analysist by day, caregiver by night, having two children of her own, she 
+        feel the insesent need to create a good home for those who have been suffering neglect...`,
     },
 ]
 
@@ -42,15 +45,16 @@ const useStyles = makeStyles((theme) => ({
         maxWidth: 322,
         marginTop: theme.spacing(5),
         marginLeft: theme.spacing(8),
-        backgroundColor: "rgb(119 42 88 / 5%)",
-        boxShadow:'2px 2px 10px 0px rgb(26 55 64 / 20%)',
+        backgroundColor: "rgb(255 255 255 / 80%)",
+        boxShadow:'2px 2px 10px 0px rgb(26 55 64 / 30%)',
         textAlign: 'left'
 
     },
-    fullLength2:{
-        background:"rgb(42 98 119 / 11%)",
-        marginTop: theme.spacing(2),
-        paddingBottom: theme.spacing(15)
+    fullLength:{
+        //background:"rgb(42 98 119 / 11%)",
+        marginTop: theme.spacing(0),
+        paddingTop: theme.spacing(5),
+        paddingBottom: theme.spacing(20)
     },
     headerText:{
         textAlign:'center',
@@ -59,6 +63,28 @@ const useStyles = makeStyles((theme) => ({
     bodyText:{
         textAlign:'center',
         marginTop: theme.spacing(3)
+    },
+    imgContainer:{
+        width :225,
+        height: 345,
+        position: 'relative',
+        overflow: 'hidden',
+
+        '&::after':{
+            content: 'none',
+            position: 'absolute',
+            width: '100%',
+            height: '100%',
+            top: 0,
+            right: 0,
+
+        }
+        
+    },
+    img:{
+        width: 225,
+        position: 'absolute',
+        
     },
     
 
@@ -69,14 +95,15 @@ function Proprieters(){
     const classes = useStyles();
 
     return(
-        <Grid container className={classes.fullLength2}>
+      
+        <Grid container className={classes.fullLength}>
             <Grid item xs={12} className={classes.headerText}>
                 <Typography variant="h2">PROPRIETERS</Typography>
 
                 <Grid container orientation="verticle">
                 {proprieters
                     .map(({title, subheader, caption, description}, i) => (
-                        <Grid item key={i}>
+                        <Grid item lg={4} md={4} sm={12} xs={12} key={i}>
                             <Card className={classes.imgSize3}>
                             <CardHeader
                                 title={title}
@@ -106,6 +133,7 @@ function Proprieters(){
                 </Grid>
             </Grid>                    
         </Grid>
+
     )
 }
 

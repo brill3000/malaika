@@ -4,7 +4,8 @@ import AboutUs from './components/About us/index'
 import ContactUs from './components/Contact us/index';
 import Donate from './components/Donate/index';
 import {ThemeProvider} from '@material-ui/core/styles';
-import {Route} from 'react-router-dom'
+import {Route} from 'react-router-dom';
+import './App.css'
 
 import theme from './theme/muiTheme';
 
@@ -13,7 +14,7 @@ function App() {
     <ThemeProvider theme={theme}>
         <>
         <Route
-          path="/"
+          path="/home"
           component={Home}
         />
         <Route

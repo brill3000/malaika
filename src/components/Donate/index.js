@@ -7,7 +7,7 @@ function Donate(){
     return(
         <>
             <Appbar 
-            logoSizePc="-0, -40, 1200, 280" 
+            logoSizePc="-100, -40, 1200, 280" 
             logoSizeMobile="-0, -40, 600, 280"
             logoSizeTablet="-0, -50, 900, 280"
             />

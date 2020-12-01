@@ -1,19 +1,19 @@
 import { createMuiTheme } from '@material-ui/core/styles';
-import {teal} from '@material-ui/core/colors'
+import {teal, purple} from '@material-ui/core/colors'
 const theme = createMuiTheme({
 
   palette: {
     primary: {
-      light: '#ffff5f',
+      light: teal[300],
       main: teal[500],
-      dark: '#c8be00',
-      contrastText: '#3797a4',
+      dark: teal[800],
+      contrastText: '#ffffff',
     },
     secondary: {
-      light: '#baffed',
-      main: '#3797a4',
-      dark: '#589b8b',
-      contrastText: '#fff',
+      light: purple[300],
+      main: purple[500],
+      dark: purple[800],
+      contrastText: '#ffffff',
     },
   },
     shape: {

@@ -11,27 +11,32 @@ const useStyles = makeStyles((theme) => ({
         marginTop: theme.spacing(0)
     },
 
-    procress:{
+    process:{
         marginTop: theme.spacing(20),
-        marginBottom: theme.spacing(20)
+        marginBottom: theme.spacing(20),
+        marginLeft: theme.spacing(10),
+        [theme.breakpoints.down('md')]:{
+            marginLeft: theme.spacing(2)
+        }
     },
 }))
 
-function Procress(){
+function Process(){
     const classes = useStyles();
 
     return(
 
-        <Grid container className={classes.procress}>
+        <Grid container className={classes.process}>
             <Grid item lg={5} md={5} sm={12} xs={12} className={classes.headerText}>
                 <Typography variant="h2">Our Process</Typography>
             </Grid>
-            <Grid item lg={7} md={7} sm={12} xs={12} className={classes.progress}>
+            <Grid item lg={5} md={5} sm={12} xs={12} className={classes.procress}>
             <CustomStepper />
             </Grid>
+            <Grid item lg={2} md={2}></Grid>
         </Grid>
     )
 }
 
-export default Procress;
+export default Process;
 

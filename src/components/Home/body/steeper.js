@@ -15,25 +15,31 @@ function getSteps() {
     <Typography>Creating a home</Typography>, 
     <Typography>Giving them skills to enable self sustainability</Typography>];
   }
+
+  const content = [
+      "Children with physical Disabilities or mentally challenged",
+      "Children below 5 years born of Jobless parents with more than 5 children",
+      "Abandoned children below 5 years",
+      "Sickly and mul-nourished children below 5 years",
+      "Orphaned children below 5 years",
+      "Children below 5 years born of Single mothers that are in their teenage",
+      "Children born of extreme poor background"
+  ]
   
 function getStepContent(step) {
 switch (step) {
     case 0:
-    return <ul><Typography>The aim is to identify these families based on their status and also pick those that are already abandoned;
-            The target groups are as follows;</Typography>
-            <li>  <Typography>Children with physical Disabilities or mentally challenged</Typography></li>
-            <li>  <Typography>Children below 5 years born of Jobless parents with more than 5 children</Typography></li>
-            <li>  <Typography>Abandoned children below 5 years</Typography></li>
-            <li>  <Typography>Sickly and mul-nourished children below 5 years</Typography></li>
-            <li>  <Typography>Orphaned children below 5 years</Typography></li>
-            <li>  <Typography>Children below 5 years born of Single mothers that are in their teenage</Typography></li>
-            <li>  <Typography>Children born of extreme poor background</Typography></li>
+    return <ul><Typography color="textSecondary">The aim is to identify these families based on their status and also pick those that are already abandoned;
+            The target groups are as follows:</Typography><br/>
+            {content.map((text, index) => (
+                <li key={index}><Typography variant="body2"color="textSecondary">{text}</Typography></li>
+            ))}
             </ul>
     case 1:
-    return <Typography>We are proposing to have these angels settled on a self sustaining 100
+    return <Typography color="textSecondary">We are proposing to have these angels settled on a self sustaining 100
              acre highly intensive and technologically mechanized hydro-phonic farm</Typography>
     case 2:
-    return <Typography>The intention is to have a fully intergrated farm as an
+    return <Typography color="textSecondary">The intention is to have a fully intergrated farm as an
              income generating activity besides other crafts such 
              as carving prcelein modelling, IT, weaving etc</Typography>
     default:

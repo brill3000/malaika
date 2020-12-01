@@ -14,7 +14,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import Typography from '@material-ui/core/Typography'
+import Typography from '@material-ui/core/Typography';
 
 import HomeIcon from '@material-ui/icons/Home';
 import IconButton from '@material-ui/core/IconButton';
@@ -22,11 +22,13 @@ import MenuOpen from '@material-ui/icons/MenuOpen';
 import Menu from '@material-ui/icons/Menu'
 import ContactSupportOutlined from '@material-ui/icons/ContactSupportOutlined';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import { faDonate, faSmile } from '@fortawesome/free-solid-svg-icons'
+import { faDonate, faSmile } from '@fortawesome/free-solid-svg-icons';
+
+
 
 
 import { ReactComponent as Logo } from '../resources/logo.svg';
-
+import DonateDialog, {Test} from './dialog'
 
 
 
@@ -51,7 +53,6 @@ const useStyles = makeStyles((theme) => ({
     size: 'large',
   },
   appBarLinks: {
-    marginLeft: theme.spacing(5),
     marginTop: theme.spacing(5)
   },
   paper: {
@@ -69,10 +70,16 @@ const useStyles = makeStyles((theme) => ({
   },
   appMargin:{
     marginTop: theme.spacing(5),
-    marginRight:theme.spacing(5),
+    marginRight:theme.spacing(10),
+  },
+
+  appMarginFirst:{
+    marginTop: theme.spacing(5),
+    marginRight:theme.spacing(10),
+    marginLeft: -100
   },
   appMargin2:{
-    marginTop: theme.spacing(2),
+    marginTop: theme.spacing(5),
     marginLeft: theme.spacing(10)
   },
   label:{
@@ -94,6 +101,8 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: theme.spacing(5),
     paddingRight: theme.spacing(5)
   },
+
+  
 }));
 
 const styles = theme => ({
@@ -134,6 +143,25 @@ const NavItem = props => (
   </Switch>
 )
 
+const NavButton = props => (
+  <Switch>
+    <Route 
+      exact
+      path={props.to}
+      render={() => <Button
+                     color="primary" 
+                     variant="text" 
+                     component={Link}
+                     {...props}
+                     />}
+    />
+    <Route
+      path='/'
+      render={() => <Button color="default"component={Link} {...props}/> }
+    />
+  </Switch>
+)
+
 const Donate = () => <FontAwesomeIcon icon={faDonate} size="lg"/>
 const Smile = () => <FontAwesomeIcon icon={faSmile} size="lg"/>
 
@@ -143,19 +171,19 @@ export default function Appbar(props) {
     const classes = useStyles();
     const [open, setOpen] = useState(false);
     const [items] = useState([
-      { label: <Typography color="secondary">Home</Typography>, 
+      { label: <Typography color="primary">Home</Typography>, 
         Icon: HomeIcon, 
         link: "/home"
       },
-      { label: <Typography color="secondary">About Us</Typography>,
+      { label: <Typography color="primary">About Us</Typography>,
         Icon: Smile, 
         link: "/about" 
       },
-      { label: <Typography color="secondary">Contact Us</Typography>,
+      { label: <Typography color="primary">Contact Us</Typography>,
         Icon: ContactSupportOutlined, 
         link: "/contact"
       },
-      { label: <Typography color="secondary">Donate</Typography>,
+      { label: <Typography color="primary">Donate</Typography>,
         Icon: Donate,
         link: "/donate"
       }
@@ -195,17 +223,23 @@ export default function Appbar(props) {
               <Grid container
                 className={classes.desktop}
               >
-                <Grid item  className={classes.appMargin}>
-                  <Button size="large" component={Link} to="/home" >Home</Button>
+                <Grid item  className={classes.appMarginFirst}>
+                  <NavButton to="/home">Home</NavButton>
                 </Grid>
                 <Grid item className={classes.appMargin} >
-                  <Button size="large" component={Link} to="/about" >About us</Button>
+                  <NavButton to="/about">About Us</NavButton>
                 </Grid>
                 <Grid item className={classes.appMargin}>
-                  <Button size="large" component={Link} to="/contact">Contacts</Button>
+                  <NavButton to="/contact">Contact Us</NavButton>
                 </Grid>
                 <Grid item className={classes.appBarLinks} >
-                  <Button variant='outlined' size="large" component={Link} to="/donate">Donate</Button>
+                  <NavButton 
+                  to="/donate" 
+                  variant="contained" 
+                  color="primary"
+                  startIcon={<Donate/>}
+                  >Donate</NavButton>
+                  
                 </Grid>
               </Grid>
               <Grid item >
@@ -246,6 +280,7 @@ export default function Appbar(props) {
             </Grid>
         </Toolbar>
       </AppBar>
+      <DonateDialog />
     </div>
   );
 }
